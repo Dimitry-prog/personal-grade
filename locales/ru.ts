@@ -18,4 +18,18 @@ export default {
     contacts: 'Контакты',
     profile: 'Профиль',
   },
+  contactsPage: {
+    title: 'Свяжитесь со Мной',
+    form: {
+      title: 'Оставьте свою информацию',
+      name: 'Имя',
+      email: 'Email',
+      msg: 'Сообщение',
+      btn: 'Отправить письмо',
+    },
+    validate: {
+      required: 'Обязательное поле',
+      email: 'Неверный Email',
+    },
+  },
 } as const;
