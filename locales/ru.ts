@@ -10,7 +10,7 @@ export default {
   },
   auth: {
     login: 'Войти',
-    register: 'Зарегистрироваться',
+    register: 'Регистрация',
   },
   headerLink: {
     home: 'Главная',
