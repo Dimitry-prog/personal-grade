@@ -30,7 +30,7 @@ const MobileNav = () => {
         </DropdownMenuTrigger>
 
         <DropdownMenuContent className="divide-y-2">
-          <nav className="py-4">
+          <nav className="py-2 pb-4">
             <ul className="flex flex-col gap-1">
               {headerLinks.map((link) => (
                 <li key={link.id}>
