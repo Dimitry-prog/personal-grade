@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 
 import ChangeLocales from '@/components/shared/change-locales';
 import ChangeTheme from '@/components/shared/change-theme';
 import Logo from '@/components/shared/logo';
 import MobileNav from '@/components/shared/mobile-nav';
 import { Button } from '@/components/ui/button';
+import { useCurrentUser } from '@/hooks/use-current-user';
 import { useHeaderLinks } from '@/hooks/use-header-links';
 import { cn } from '@/lib/utils';
 import { useScopedI18n } from '@/locales/client';
@@ -15,6 +17,7 @@ import { useScopedI18n } from '@/locales/client';
 const Header = () => {
   const pathname = usePathname();
   const headerLinks = useHeaderLinks();
+  const userInfo = useCurrentUser();
   const t = useScopedI18n('auth');
 
   return (
@@ -43,15 +46,25 @@ const Header = () => {
         <ChangeLocales />
         <ChangeTheme />
 
-        <div className="flex items-center justify-between gap-4">
-          <Button asChild>
-            <Link href="/sign-in">{t('login')}</Link>
-          </Button>
+        {userInfo ? (
+          <>
+            <Button onClick={() => signOut()} variant="outline">
+              {t('logout')}
+            </Button>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center justify-between gap-4">
+              <Button asChild>
+                <Link href="/auth/login">{t('login')}</Link>
+              </Button>
 
-          <Button asChild variant="outline">
-            <Link href="/sign-up">{t('register')}</Link>
-          </Button>
-        </div>
+              <Button asChild variant="outline">
+                <Link href="/auth/register">{t('register')}</Link>
+              </Button>
+            </div>
+          </>
+        )}
       </div>
 
       <MobileNav />

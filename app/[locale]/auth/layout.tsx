@@ -1,19 +1,11 @@
+import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
-import LocaleProvider from '@/components/shared/locale-provider';
+export const metadata: Metadata = {
+  title: 'Authentication on Personal Grade',
+  description: 'Complete authentication and grow your people with us',
+};
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
-  children: ReactNode;
-  params: { locale: string };
-}) {
-  return (
-    <LocaleProvider locale={locale}>
-      <div className="container flex h-screen flex-col py-4 md:px-8">
-        <main className="flex-1">{children}</main>
-      </div>
-    </LocaleProvider>
-  );
+export default async function Layout({ children }: { children: ReactNode }) {
+  return <section className="py-10 md:py-14">{children}</section>;
 }

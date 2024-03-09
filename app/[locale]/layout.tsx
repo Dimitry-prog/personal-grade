@@ -1,10 +1,14 @@
 import '../globals.css';
 
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import { ReactNode } from 'react';
 
+import Header from '@/components/shared/header';
+import LocaleProvider from '@/components/shared/locale-provider';
 import ThemeProvider from '@/components/shared/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
+import { auth } from '@/lib/auth';
 
 export const metadata: Metadata = {
   title: 'Personal Grade',
@@ -18,19 +22,38 @@ export default async function RootLayout({
   children: ReactNode;
   params: { locale: string };
 }) {
+  const session = await auth();
+
   return (
     <html lang={locale}>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Toaster />
-          {children}
-        </ThemeProvider>
-      </body>
+      <SessionProvider session={session}>
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Toaster
+              position="top-center"
+              richColors
+              toastOptions={{
+                classNames: {
+                  title: 'text-base',
+                },
+              }}
+            />
+
+            <div className="container flex h-screen flex-col py-4 md:px-8">
+              <LocaleProvider locale={locale}>
+                <Header />
+
+                <main className="flex-1">{children}</main>
+              </LocaleProvider>
+            </div>
+          </ThemeProvider>
+        </body>
+      </SessionProvider>
     </html>
   );
 }

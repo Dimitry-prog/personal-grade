@@ -1,9 +1,5 @@
 const InfoPage = () => {
-  return (
-    <div>
-      InfoPage
-    </div>
-  );
+  return <div>InfoPage</div>;
 };
 
 export default InfoPage;
