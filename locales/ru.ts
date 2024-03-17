@@ -86,5 +86,48 @@ export default {
     smtWentWrong: 'Что-то пошло не так!',
     emailExist: 'Этот электронный адрес уже занят!',
     failedCreate: 'Не удалось создать {params}',
+    failedToFetch: 'Не удалось запросить {params}',
+    failedToUpdate: 'Не удалось обновить {params}',
+    params: {
+      user: 'пользователя',
+      users: 'пользователей',
+      chiefs: 'руководителей',
+    },
+  },
+  userInfoForm: {
+    title: 'Необходимо больше информации о вас',
+    inputs: {
+      lastName: 'Фамилия',
+      patronymic: 'Отчество',
+      position: 'Должность',
+      role: 'Роль',
+      chiefId: 'Начальник',
+      employees: 'Подчиненные',
+      btn: 'Сохранить',
+    },
+    toast: {
+      success: {
+        title: 'Обновление произошло успешно!',
+      },
+      error: {
+        title: 'Что-то пошло не так!',
+      },
+    },
+    placeholders: {
+      your: 'Ваше',
+      choose: 'Выберите',
+      enter: 'Введите',
+    },
+    validate: {
+      required: 'Обязательное поле',
+    },
+    roles: {
+      CHIEF: 'Руководитель',
+      EMPLOYEE: 'Подчиненный',
+    },
+  },
+  multiSelect: {
+    emptyTitle: 'Нет совпадений',
+    create: 'Создать',
   },
 } as const;

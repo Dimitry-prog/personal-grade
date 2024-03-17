@@ -1,12 +1,12 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
+import Loader from '@/components/shared/loader';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -130,7 +130,7 @@ const AuthForm = ({ variant = 'login' }: AuthFormProps) => {
 
           <Button disabled={isPending} type="submit" className="w-full">
             {isPending ? (
-              <Loader2 className="animate-spin" />
+              <Loader />
             ) : variant === 'login' ? (
               t('login.btnSubmit')
             ) : (

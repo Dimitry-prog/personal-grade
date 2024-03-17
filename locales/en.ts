@@ -86,5 +86,48 @@ export default {
     smtWentWrong: 'Something went wrong!',
     emailExist: 'Email already in use!',
     failedCreate: 'Failed to create {params}',
+    failedToFetch: 'Failed to fetch {params}',
+    failedToUpdate: 'Failed to update {params}',
+    params: {
+      user: 'user',
+      users: 'users',
+      chiefs: 'chiefs',
+    },
+  },
+  userInfoForm: {
+    title: 'Need more info about you',
+    inputs: {
+      lastName: 'Last name',
+      patronymic: 'Patronymic',
+      position: 'Job title',
+      role: 'Role',
+      chiefId: 'Chief',
+      employees: 'Employees',
+      btn: 'Save',
+    },
+    toast: {
+      success: {
+        title: 'Update was successfully!',
+      },
+      error: {
+        title: 'Something went wrong!',
+      },
+    },
+    placeholders: {
+      your: 'Your',
+      choose: 'Choose',
+      enter: 'Enter',
+    },
+    validate: {
+      required: 'Required',
+    },
+    roles: {
+      CHIEF: 'CHIEF',
+      EMPLOYEE: 'EMPLOYEE',
+    },
+  },
+  multiSelect: {
+    emptyTitle: 'No result was found',
+    create: 'Create',
   },
 } as const;

@@ -25,7 +25,8 @@
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
-    "@typescript-eslint/no-unused-vars": "warn"
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/no-unknown-property": "warn"
   },
   "parserOptions": {
     "sourceType": "module",

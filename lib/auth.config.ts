@@ -43,10 +43,25 @@ export default {
   ],
   callbacks: {
     async jwt({ token }) {
-      return token;
+      const existingUser = await getUserByEmail(token.email!);
+
+      if (!existingUser) return token;
+
+      return {
+        ...token,
+        ...existingUser,
+      };
     },
     async session({ token, session }) {
-      return session;
+      delete token['password'];
+
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          ...token,
+        },
+      };
     },
   },
 } satisfies NextAuthConfig;
