@@ -27,10 +27,16 @@ const ProfilePage = async () => {
       };
     }) || [];
 
+  const isEnoughUserInfo = user.roles.includes('CHIEF' || 'EMPLOYEE');
+
   return (
-    <div>
-      <UserInfoModal chiefs={chiefs} users={users} />
-    </div>
+    <>
+      {!isEnoughUserInfo && <UserInfoModal chiefs={chiefs} users={users} />}
+
+      <section className="">
+        <h2>Hello, {user.name}</h2>
+      </section>
+    </>
   );
 };
 

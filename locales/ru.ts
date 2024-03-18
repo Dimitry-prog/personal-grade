@@ -130,4 +130,13 @@ export default {
     emptyTitle: 'Нет совпадений',
     create: 'Создать',
   },
+  profilePage: {
+    sidebar: {
+      home: 'Главная',
+      profile: 'Профиль',
+      team: 'Моя Команда',
+      chats: 'Чаты',
+      gifts: 'Подарки',
+    },
+  },
 } as const;

@@ -1,3 +1,5 @@
+import { User } from '@prisma/client';
+
 import { auth } from '@/lib/auth';
 import { db } from '@/lib/db';
 
@@ -19,5 +21,5 @@ export const getUserByEmail = async (email: string) => {
 export const currentUser = async () => {
   const session = await auth();
 
-  return session?.user;
+  return session?.user as User;
 };

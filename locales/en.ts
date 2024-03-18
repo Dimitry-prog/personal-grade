@@ -130,4 +130,13 @@ export default {
     emptyTitle: 'No result was found',
     create: 'Create',
   },
+  profilePage: {
+    sidebar: {
+      home: 'Home',
+      profile: 'Profile',
+      team: 'My Team',
+      chats: 'Chats',
+      gifts: 'Gifts',
+    },
+  },
 } as const;

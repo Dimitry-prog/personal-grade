@@ -8,6 +8,7 @@ import Header from '@/components/shared/header';
 import LocaleProvider from '@/components/shared/locale-provider';
 import ThemeProvider from '@/components/shared/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { auth } from '@/lib/auth';
 
 export const metadata: Metadata = {
@@ -43,14 +44,15 @@ export default async function RootLayout({
                 },
               }}
             />
+            <TooltipProvider delayDuration={300}>
+              <div className="container flex h-screen flex-col py-4 md:px-8">
+                <LocaleProvider locale={locale}>
+                  <Header />
 
-            <div className="container flex h-screen flex-col py-4 md:px-8">
-              <LocaleProvider locale={locale}>
-                <Header />
-
-                <main className="flex-1">{children}</main>
-              </LocaleProvider>
-            </div>
+                  <main className="flex-1">{children}</main>
+                </LocaleProvider>
+              </div>
+            </TooltipProvider>
           </ThemeProvider>
         </body>
       </SessionProvider>
